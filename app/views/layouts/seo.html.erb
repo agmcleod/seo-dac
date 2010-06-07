@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SEO Reporter</title>
+    <%= stylesheet_link_tag "seo" %>
+    <%= javascript_include_tag 'jquery-1.4.2.min', 'myscripts' %>
+  </head>
+  <body>
+    <div id="container">
+      <p class="notice"><%= flash[:notice] %></p>
+      <%= yield %>
+    </div>
+  </body>
+</html>

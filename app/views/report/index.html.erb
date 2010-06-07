@@ -1,0 +1,84 @@
+<h1>SEO Report Program</h1>
+<h3>Use the form below to generate an SEO report on the pagetorrent program</h3>
+<div>
+  <% form_for @report, :url => root_path do |f| -%>
+    <%= f.error_messages %>
+    <p>
+      <b><%= f.label :domain, "Domain: " %></b>
+      <%= f.text_field :domain, :class => 'domain-field', :autofocus => 'true' %>      
+      <br />
+      <span class="small-tip">Example: http://local.domain.com</span>
+    </p>
+    <p>
+      <span class="small-label"><%= f.label :keywords, "Keywords: " %></span>
+      <%= f.text_field :keywords %>
+      <br />
+      <span class="small-tip">Separate keywords by commas. Ex: lawn care,florida</span>
+    </p>
+    <p>
+      <b>Include:</b>
+      <%= show_options(f) %>
+    </p>
+    <p>
+      <%= f.submit "Report" %>
+    </p>
+  <% end -%>
+</div>
+<% unless @report.content.blank? -%>
+  <div id="report">
+    <div id="report-header">
+      <h4>Report response:</h4>
+      <div id="legend">
+        <div id="warning-example">
+          <p id="warning-label">Warning:</p>
+          <div id="warning-colour"></div>
+        </div>
+        <div id="error-example">
+          <p id="error-label">Error:</p>
+          <div id="error-colour"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <table id="report-table">
+        <thead>
+          <tr><th>Element</th><th id="content-col">Content</th></tr>
+        </thead>
+        <tbody>
+          <%= display_title_report(@report) %>
+          <% unless @report.keywords.blank? -%>
+            <%= keywords_report(@report) %>
+          <% end -%>
+          <%= display_description_meta_tag_report(@report) %>
+          <%= display_h1_report(@report) %>
+          <%= display_h_report(@report, 'h2') %>
+          <% if @report.h3 == "y" -%>
+            <%= display_h_report(@report, 'h3') %>
+          <% end -%>
+          <%= display_canonical_report(@report) %>
+          <%= display_invalid_report(@report) %>
+          <% if @report.sitemap == "y" -%>
+            <%= display_sitemap_report(@report) %>
+          <% end -%>
+          <% if @report.tracking == "y" -%>
+            <%= display_tracking_report(@report) %>
+          <% end -%>
+          <% if @report.images == "y" -%>
+            <%= display_image_alt_report(@report) %>
+          <% end -%>
+          <% if @report.contextual_links == "y" -%>
+            <%= contextual_links_report(@report) %>
+          <% end -%>
+          <tr>
+            <td>
+              Source
+            </td>
+            <td>
+              <p><%= link_to "show source", root_path, :id => 'show-source' %></p>
+              <p id="source-code"><%=h @report.content %></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end -%>
