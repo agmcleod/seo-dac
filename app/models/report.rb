@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'Curl'
+# require 'rubygems'
+# require 'Curl'
 require 'net/http'
 require 'URI'
 
@@ -18,8 +18,8 @@ class Report < ActiveRecord::Base
   
   def has_sitemaps
     begin
-      sitemap = Curl::Easy.perform(URI.encode("#{self.domain_no_slash}/sitemap.xml")).body_str
-      index = Curl::Easy.perform(URI.encode("#{self.domain_no_slash}/sitemap-index.xml")).body_str
+      sitemap = Net::HTTP.get(URI.parse("#{self.domain_no_slash}/sitemap.xml"))
+      index = Net::HTTP.get(URI.parse("#{self.domain_no_slash}/sitemap-index.xml"))
       [sitemap, index]
     rescue
       return [nil, nil]

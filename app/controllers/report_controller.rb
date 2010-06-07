@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'Curl'
+# require 'rubygems'
+# require 'Curl'
 require 'net/http'
 require 'URI'
 
@@ -8,7 +8,7 @@ class ReportController < ApplicationController
     if request.post?
       @report = Report.new(params[:report])
       if @report.valid?
-        @report.content = Curl::Easy.perform(URI.encode(params[:report][:domain])).body_str
+        @report.content = Net::HTTP.get(URI.parse(params[:report][:domain]))
       else
         render :action => 'index'
       end
