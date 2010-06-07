@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'Curl'
 require 'net/http'
 require 'URI'
