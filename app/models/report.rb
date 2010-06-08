@@ -1,5 +1,3 @@
-# require 'rubygems'
-# require 'Curl'
 require 'net/http'
 require 'URI'
 
@@ -50,7 +48,7 @@ class Report < ActiveRecord::Base
       done = false
       until done
         done = true if last_index.nil?
-        i = tag.index(/href="/i, last_index)
+        i = tag.index(/href=("|')/i, last_index)
         if i.nil?
           done = true
         else
@@ -68,11 +66,12 @@ class Report < ActiveRecord::Base
   
   def domain_no_slash
     domain = self.domain
-    last_char = domain[domain.size-1,1]
-    if last_char == "/"
-      domain = domain[0..domain.size-2]
+    slash = domain.index('/', domain.index(/http:\/\/|https:\/\//)+8)
+    if slash.nil?
+      domain
+    else
+      domain[0..slash-1]
     end
-    domain
   end
   
   def get_tags(tag_name, self_closing = false, after_body = false, ignore_comments = false)
@@ -129,6 +128,7 @@ class Report < ActiveRecord::Base
     end
     contents
   end
+  
   
   def get_full_tag_name(tag_name, index, self_closing = false)
     if />/ =~ tag_name[tag_name.size-1,1]
@@ -199,7 +199,7 @@ private
   end
   
   def is_javascript(content, script_start, script_end)
-    return false if script_start.nil? || script_start.nil?
+    return false if script_start.nil? || script_end.nil?
     if self.content.index(content) < script_start || self.content.index(content) > script_end
       return false
     else

@@ -614,3 +614,107 @@ Rendering template within layouts/seo
 Rendering report/index
 xml: 0
 Completed in 1505ms (View: 1174, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:00) [GET]
+  [4;36;1mReport Columns (45.6ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 111ms (View: 56, DB: 46) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:11) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"http://local-movers.williamsmoving.com/", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;35;1mReport Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 322ms (View: 9, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:15) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local-movers.williamsmoving.com/", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 347ms (View: 11, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:25) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 351ms (View: 12, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:11:44) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 543ms (View: 258, DB: 1) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:11:53) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+xml: 0
+Completed in 1638ms (View: 1141, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:12:00) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+xml: 0
+Completed in 1436ms (View: 1162, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:12:05) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com/", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;35;1mReport Columns (51.6ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+xml: 0
+Completed in 4053ms (View: 1518, DB: 52) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:12:14) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com/Lawn-Care", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+xml: 0
+Completed in 1464ms (View: 1174, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:13:12) [POST]
+  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com/Lawn-Care", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
+  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+xml: 0
+Completed in 1520ms (View: 1153, DB: 2) | 200 OK [http://localhost/]
