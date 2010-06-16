@@ -2,7 +2,7 @@ require 'net/http'
 require 'URI'
 
 class Report < ActiveRecord::Base
-  validates_presence_of :domain, :message => "can't be blank"
+  validate :url_query
   
   attr_accessor :content, :sitemap, :images, :h3, :tracking, :keywords, :contextual_links
   
@@ -175,6 +175,15 @@ class Report < ActiveRecord::Base
 private 
   def comment_position_after_last(last)
     return self.content.index("<!--", last)
+  end
+  
+  def url_query
+    begin
+      self.content = Net::HTTP.get(URI.parse(self.domain))
+    rescue Exception:
+      errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
+      self.content = ""
+    end
   end
   
   def comment_close_after_open(open)
