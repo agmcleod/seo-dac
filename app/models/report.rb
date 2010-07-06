@@ -97,7 +97,7 @@ private
         self.get_layers(self.pages[0], errors)
       end      
     # rescue Exception => ex
-    #  errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
+    # errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
       self.content = ""
     # end
   end  

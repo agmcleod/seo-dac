@@ -1,20 +1,29 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
-	var isShowing = false;
-	$('#show-source').click(function() {
-		if(!isShowing) {
-			$(this).html('hide source');
-			$('#source-code').css('display', 'inline');
-			isShowing = true;
-			return false;
-		}
-		else {
-			$(this).html('show source');
-			$('#source-code').css('display', 'none');
-			isShowing = false;
-			return false;
-		}
+	var sourceCodes = [];
+	$('.show-source').each(function() {
+		var rev = $(this).attr('rev');
+		sourceCodes[rev] = false;
+		$(this).click(function() {
+			var rev = $(this).attr('rev');
+			if(!sourceCodes[rev]) {
+				$(this).html('hide source');
+				$(".source-code[id='"+ rev +"']").each(function () {
+					$(this).css('display', 'inline');
+				});
+				sourceCodes[rev] = true;
+				return false;
+			}
+			else {
+				$(this).html('show source');
+				$(".source-code[id='"+ rev +"']").each(function () {
+					$(this).css('display', 'none');
+				});
+				sourceCodes[rev] = false;
+				return false;
+			}
+		});
 	});
 	// fix radio button checked bug in mozilla
 	if($.browser.mozilla) $("form").attr("autocomplete", "off");

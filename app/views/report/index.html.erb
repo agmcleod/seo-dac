@@ -90,8 +90,8 @@
                     Source
                   </td>
                   <td>
-                    <p><%= link_to "show source", root_path, :id => 'show-source' %></p>
-                    <p id="source-code"><%=h @report.content %></p>
+                    <p><%= link_to "show source", root_path, :class => 'show-source', :rev => i %></p>
+                    <p class="source-code" id="<%= "#{i}" %>"><%=h page.content %></p>
                   </td>
                 </tr>
               </tbody>
