@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <title>SEO Reporter</title>
-    <%= stylesheet_link_tag "seo" %>
-    <%= javascript_include_tag 'jquery-1.4.2.min', 'myscripts' %>
+    <%= stylesheet_link_tag "seo", "jquery-ui-1.8.2.custom" %>
+    <%= javascript_include_tag 'jquery-1.4.2.min', 'jquery-ui-1.8.2.custom.min', 'application' %>
   </head>
   <body>
     <div id="container">
-      <p class="notice"><%= flash[:notice] %></p>
+      <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% elsif flash[:error] %>
+        <p id="flashError"><%= flash[:error] %></p>
+      <% end -%>
       <%= yield %>
     </div>
   </body>

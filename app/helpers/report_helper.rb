@@ -37,7 +37,23 @@ class String
     (keyword_amount.to_f / count.to_f) * 100
   end
 end
+
 module ReportHelper
+  def table_div_class_name(counter)
+    if counter == 0 
+      "ui-tabs-panel ui-widget-content ui-corner-bottom"
+    else
+      "ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide"
+    end
+  end
+  
+  def tab_nav_class_name(counter)
+    if counter == 0
+      "ui-state-default ui-corner-top ui-tabs-selected ui-state-active ui-state-hover"
+    else
+      "ui-state-default ui-corner-top"
+    end
+  end
   
   def display_h1_report(report)
     out = ""

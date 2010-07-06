@@ -2,16 +2,15 @@ require 'net/http'
 require 'URI'
 
 class Report < ActiveRecord::Base
+  # the url_query method sets the URL's source code to the content attribute appropriately
   validate :url_query
+  has_many :pages
   
-  attr_accessor :content, :sitemap, :images, :h3, :tracking, :keywords, :contextual_links
+  attr_accessor :content, :sitemap, :images, :h3, :tracking, :keywords, :contextual_links, :url_type
   
-  def h_tags(type)
-    tags = self.get_tags("<#{type}")
-  end
-  
-  def title_tag
-    tags = self.get_tags("<title>")
+  def add_page(content)
+    self.pages << Page.new(:name => "Layer #{self.pages.size}", :content => content)
+    self.content = self.pages[0].content if self.pages.size == 0
   end
   
   def has_sitemaps
@@ -24,49 +23,9 @@ class Report < ActiveRecord::Base
     end    
   end
   
-  def image_tags
-    tags = self.get_tags("<img", true)
-  end
-  
-  def link_tags
-    tags = self.get_tags("<link", true)
-  end
-  
-  def meta_tags
-    tags = self.get_tags('<meta', true)
-  end
-  
-  def script_tracking_tags
-    tags = self.get_tags('<script', false, true, true)
-  end
-  
-  def contextual_links_hrefs
-    tags = self.get_tags('<p', false, true)
-    anchor_hrefs = Array.new
-    tags.each do |tag|
-      last_index = 0
-      done = false
-      until done
-        done = true if last_index.nil?
-        i = tag.index(/href=("|')/i, last_index)
-        if i.nil?
-          done = true
-        else
-          last_index = tag.index(/"/, i+6)
-          unless last_index.nil?
-            anchor_hrefs << tag[(i + 6)..last_index-1]
-          else
-            done = true
-          end
-        end
-      end
-    end
-    anchor_hrefs
-  end
-  
   def domain_no_slash
     domain = self.domain
-    slash = domain.index('/', domain.index(/http:\/\/|https:\/\//)+8)
+    slash = self.domain.index('/', domain.index(/http:\/\/|https:\/\//)+8)
     if slash.nil?
       domain
     else
@@ -74,153 +33,72 @@ class Report < ActiveRecord::Base
     end
   end
   
-  def get_tags(tag_name, self_closing = false, after_body = false, ignore_comments = false)
-    closing_tag = nil
-    unless self_closing
-      closing_tag = tag_name.gsub(/</, "</")
-    end
-    last_close = 0
-    if after_body
-      body_start = self.content.index('<body')
-      body_tag = self.content[body_start..self.content.index('>', body_start)]
-      last_close = self.content.index(body_tag) + body_tag.size
-    end
-    done = false
-    
-    contents = Array.new
-    until done
-      comment = comment_position_after_last(last_close)
-      comment_close = nil
-      unless comment.nil?
-        comment_close = comment_close_after_open(comment) + 3
-      end
-      full_tag_name = self.get_full_tag_name(tag_name, last_close, self_closing)
-      # Rails.logger.debug "ftn: #{full_tag_name}"
-      # This will append the appropriate tag in the case we are looking for a self closing one
-      if self_closing && !full_tag_name.nil? && !full_tag_name.blank?
-        last_close = self.content.index(full_tag_name, last_close)
-        last_close += full_tag_name.size
-        # ignores the content within comments, unless otherwise specified not to
-        if ignore_comments
-          contents << full_tag_name
-        else
-          append_if_not_commented(contents, full_tag_name, comment, comment_close)
-        end
-      # This appends the contents between an opening and closing tag with the given name
-      elsif !full_tag_name.nil? && !full_tag_name.blank?
-       open = self.content.index(full_tag_name, last_close)
-       if !open.nil? && !open.blank?
-          #get next closing tag
-          last_close = self.content.index(closing_tag, open) - 1
-          # ignores the content within comments, unless otherwise specified not to
-          if ignore_comments
-            contents << self.content[(open)+full_tag_name.size..last_close]
-          else
-            append_if_not_commented(contents, self.content[(open)+full_tag_name.size..last_close], comment, comment_close)
+  def domain_with_slash
+    "#{self.domain_no_slash}/"
+  end
+  
+  # Scans progressively through the program to grab the code of each layer
+  # @param [String] index_page - The page object for the index page of the site
+  # @param [ActiveRecord Error] errors - passed to allow addition of validation errors
+  # @return [void]
+  def get_layers(index_page, errors)
+    ul_tags = index_page.get_tags('<ul', false, true, true, true)
+    logger.debug "ul: #{ul_tags.size}"
+      ul_tags.each do |tag|
+      class_index = tag.index(/class=("|')/)
+      unless class_index.nil?
+        class_attribute = tag[(class_index + 7)..tag.index(/"|'/, class_index+7)]
+        if class_attribute.index('layer-nav')
+          href_index = tag.index(/href=("|')/)
+          success = false        
+          unless href_index.nil?
+            href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
+            unless href.blank?
+              logger.debug "href: #{href}"
+              if href[0,1] == '/'
+                #begin
+                  self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")))
+                  success = true
+                #rescue Exception => ex
+                #  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+                #end
+              elsif href.index(/http:\/\/|https:\/\//)
+                #begin
+                  self.add_page(Net::HTTP.get(href))
+                  success = true
+                #rescue Exception => ex
+                  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+                #end
+              else
+                #begin
+                  logger.debug "with-slash"
+                  self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")))
+                  success = true
+                #rescue Exception => ex
+                  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+                #end
+              end
+            end
           end
-        else
-          done = true
+          if success
+            ul_tags = self.pages[self.pages.size - 1].get_tags('<ul', false, true, true, true)
+          end
         end
-      else
-        done = true
       end
-      
-    end
-    contents
-  end
-  
-  
-  def get_full_tag_name(tag_name, index, self_closing = false)
-    if />/ =~ tag_name[tag_name.size-1,1]
-      tag_name
-    else
-      start = self.content.index(tag_name, index)
-      return nil if start.nil?
-      end_tag = 0
-      if self_closing
-        i = self.content.index('/>', start) || self.content.index('>', start)
-        unless i.nil?
-          end_tag = i + 1
-        else
-          return nil
-        end
-      else
-        end_tag = self.content.index('>', start)
-      end
-      self.content[start..end_tag] 
     end
   end
   
-  def get_copy_content
-    content = self.content
-    body_start = content.index('<body')
-    body_tag = content[body_start..content.index('>', body_start)]
-    last_close = content.index(body_tag) + body_tag.size
-    content = content[last_close..content.index('</body>')-1]
-    index = 0
-    until index.nil?
-      index = content.index('<script')
-      break if index.nil?
-      close = content.index('</script>', index)
-      if close.nil?
-        close = content.size
-      else
-        close + 9
-      end
-      content = "#{content[0..index-1]}#{content[close..content.size]}"
-    end
-    content.gsub(/<\/?[^>]*>/, "")
-  end
-  
-private 
-  def comment_position_after_last(last)
-    return self.content.index("<!--", last)
-  end
+private
   
   def url_query
-    begin
-      self.content = Net::HTTP.get(URI.parse(self.domain))
-    rescue Exception:
-      errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
+    # begin
+      self.add_page(Net::HTTP.get(URI.parse(self.domain)))
+      if self.url_type == 'domain'
+        self.get_layers(self.pages[0], errors)
+      end      
+    # rescue Exception => ex
+    #  errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
       self.content = ""
-    end
-  end
-  
-  def comment_close_after_open(open)
-    return self.content.index("-->", open)
-  end
-  
-  def script_position_after_last(last)    
-    return self.content.index(/<script/i, last)  
-  end
-  
-  def script_close_after_open(open)
-    return self.content.index(/<\/script>/i, open)
-  end
-  
-  def is_commented(content, comment_open, comment_close)
-    return false if comment_open.nil? || comment_close.nil?
-    if self.content.index(content) < comment_open || self.content.index(content) > close
-      return false
-    else
-      return true
-    end
-  end
-  
-  def is_javascript(content, script_start, script_end)
-    return false if script_start.nil? || script_end.nil?
-    if self.content.index(content) < script_start || self.content.index(content) > script_end
-      return false
-    else
-      return true
-    end
-  end
-  
-  def append_if_not_commented(contents, tag, open, close)
-    if open.nil? || close.nil?
-      contents << tag
-    else
-      contents << tag if self.content.index(tag) < open || self.content.index(tag) > close
-    end
-  end
+    # end
+  end  
 end

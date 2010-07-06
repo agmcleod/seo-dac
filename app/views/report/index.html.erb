@@ -20,11 +20,20 @@
       <%= show_options(f) %>
     </p>
     <p>
+      <b>Type:</b>
+      <%= f.label :url_type, 'Domain: ' %>
+      <%= f.radio_button :url_type, :domain, :checked => true %>
+      <%= f.label :url_type, 'Single Page: ' %>
+      <%= f.radio_button :url_type, :single_page %><br />
+      <span id="domain-type-warning">In order for the application to scan multiple layers, the html element containing a layer link
+        must contain the class attribute: layer-nav</span>
+    </p>
+    <p>
       <%= f.submit "Report" %>
     </p>
   <% end -%>
 </div>
-<% unless @report.content.blank? -%>
+<% unless @report.pages.size == 0 -%>
   <div id="report">
     <div id="report-header">
       <h4>Report response:</h4>
@@ -39,46 +48,57 @@
         </div>
       </div>
       <div class="clear"></div>
-      <table id="report-table">
-        <thead>
-          <tr><th>Element</th><th id="content-col">Content</th></tr>
-        </thead>
-        <tbody>
-          <%= display_title_report(@report) %>
-          <% unless @report.keywords.blank? -%>
-            <%= keywords_report(@report) %>
+      <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+        <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+          <% @report.pages.each_with_index do |page, i| %>
+            <li class="<%= tab_nav_class_name(i) %>"><a href="#tabs-<%= "#{i}" %>"><%= "#{page.name}" %></a></li>
           <% end -%>
-          <%= display_description_meta_tag_report(@report) %>
-          <%= display_h1_report(@report) %>
-          <%= display_h_report(@report, 'h2') %>
-          <% if @report.h3 == "y" -%>
-            <%= display_h_report(@report, 'h3') %>
-          <% end -%>
-          <%= display_canonical_report(@report) %>
-          <%= display_invalid_report(@report) %>
-          <% if @report.sitemap == "y" -%>
-            <%= display_sitemap_report(@report) %>
-          <% end -%>
-          <% if @report.tracking == "y" -%>
-            <%= display_tracking_report(@report) %>
-          <% end -%>
-          <% if @report.images == "y" -%>
-            <%= display_image_alt_report(@report) %>
-          <% end -%>
-          <% if @report.contextual_links == "y" -%>
-            <%= contextual_links_report(@report) %>
-          <% end -%>
-          <tr>
-            <td>
-              Source
-            </td>
-            <td>
-              <p><%= link_to "show source", root_path, :id => 'show-source' %></p>
-              <p id="source-code"><%=h @report.content %></p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        </ul>
+        <% @report.pages.each_with_index do |page, i| %>
+          <div id="tabs-<%= "#{i}" %>" class="<%= table_div_class_name(i) %>">
+            <table class="report-table">
+              <thead>
+                <tr><th>Element</th><th id="content-col">Content</th></tr>
+              </thead>
+              <tbody>
+                <%= display_title_report(page) %>
+                <% unless @report.keywords.blank? -%>
+                  <%= keywords_report(page) %>
+                <% end -%>
+                <%= display_description_meta_tag_report(page) %>
+                <%= display_h1_report(page) %>
+                <%= display_h_report(page, 'h2') %>
+                <% if @report.h3 == "y" -%>
+                  <%= display_h_report(page, 'h3') %>
+                <% end -%>
+                <%= display_canonical_report(page) %>
+                <%= display_invalid_report(page) %>
+                <% if @report.sitemap == "y" -%>
+                  <%= display_sitemap_report(@report) %>
+                <% end -%>
+                <% if @report.tracking == "y" -%>
+                  <%= display_tracking_report(page) %>
+                <% end -%>
+                <% if @report.images == "y" -%>
+                  <%= display_image_alt_report(page) %>
+                <% end -%>
+                <% if @report.contextual_links == "y" -%>
+                  <%= contextual_links_report(page) %>
+                <% end -%>
+                <tr>
+                  <td>
+                    Source
+                  </td>
+                  <td>
+                    <p><%= link_to "show source", root_path, :id => 'show-source' %></p>
+                    <p id="source-code"><%=h @report.content %></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% end -%>
+      </div>
     </div>
   </div>
 <% end -%>

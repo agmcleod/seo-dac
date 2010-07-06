@@ -5,9 +5,7 @@ class ReportController < ApplicationController
   def index
     if request.post?
       @report = Report.new(params[:report])
-      if @report.valid?
-        
-      else
+      unless @report.valid?
         render :action => 'index'
       end
     else
