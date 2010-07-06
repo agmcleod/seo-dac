@@ -66,18 +66,18 @@ body {
 	display:none;
 }
 
-#report-table {
+.report-table {
 	border-collapse:collapse;
 	border:1px solid black;
 }
 
-#report-table th, #report-table td {
+.report-table th, .report-table td {
 	border-collapse:collapse;
 	border:1px solid black;
 	padding:5px;
 }
 
-#report-table td {
+.report-table td {
 	font-size:12px;
 	vertical-align:top;
 }
@@ -142,4 +142,17 @@ body {
 
 .small-label {
 	font-size:14px;
+}
+
+#domain-type-warning {
+	font-size:12px;
+	color:red;
+}
+
+#flashError {
+	padding:10px 5px;
+	color:#000;
+	border:1px solid #a00;
+	background-color:#faa;
+	margin-bottom:10px;
 }
