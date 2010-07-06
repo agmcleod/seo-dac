@@ -2,7 +2,11 @@ class String
   def get_tag_attribute(attribute)
     index = (self.index(/#{attribute}=/i) || 0) + (attribute.size + 2)
     return "" if index.nil?
-    end_index = self.index(/"|'/i, index)-1
+    if self[index-1,0] == "'"    
+      end_index = self.index(/'/i, index)-1
+    else
+      end_index = self.index(/"/i, index)-1
+    end
     return "" if end_index.nil?
     self[index..end_index] || ""
   end
