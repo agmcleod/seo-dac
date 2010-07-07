@@ -1,5 +1,7 @@
 class Page < ActiveRecord::Base
   belongs_to :report
+  attr_accessor :keywords
+  
   def h_tags(type)
     tags = self.get_tags("<#{type}")
   end
@@ -48,17 +50,61 @@ class Page < ActiveRecord::Base
     anchor_hrefs
   end
   
+  # Available options:
+  # after_body [Boolean] - whether to start after the opening body tag
+  # contains [Boolean] - whether the attribute has to just contain the value or equal to it
+  def get_tags_with_attribute(*args)
+    attr_name = "#{attr_name}=\"" || nil
+    value = args.second || nil
+    return nil if attr_name.nil? || value.nil?
+    # options hash
+    options = args.third || {}
+    
+    tags = Array.new
+    done = false
+    last_index = 0
+    last_index = after_body_index(options[:after_body], last_index)
+    until done
+      attr_index = self.content.index(attr_name, last_index)
+      if attr_index.nil?
+        done = true
+      else
+        value_start = attr_index + attr_name.size
+        value_end = self.content.index('"', value_start)-1
+        attr_value = self.content[value_start..value_end]
+        if (options[:contains] && attr_value.index(value)) || (attr_value == value)
+          tag_start = self.content.rindex('<', attr_index)
+          # check to ensure the first < doesn't have a closing > before the attribute
+          unless self.content.index('>', tag_start) < attr_index
+            end_ele = self.content.index(/>|\/>/, tag_start)
+            if self.content[end_ele,1] == '>'
+              tag_name = self.content[(tag_start + 1)..self.content.index(/\s/, tag_start)-1]
+              tag_end = self.content.index("</#{tag_name}>", end_ele) + (tag_name.size+3)
+            elsif self.content[end_ele,2] == '/>'
+              tag_end = end_ele + 1
+            end
+            last_index = end_ele
+            tags << self.content[tag_start..tag_end]
+          else
+            last_index = attr_index + attr_value.size
+          end
+        else
+          last_index = attr_index + attr_value.size
+        end
+        last_index += 1        
+      end
+    end
+    logger.debug "tag size: #{tags.size}"
+    tags
+  end
+  
   def get_tags(tag_name, self_closing = false, after_body = false, ignore_comments = true, tag_name_only = false)
     closing_tag = nil
     unless self_closing
       closing_tag = tag_name.gsub(/</, "</")
     end
     last_close = 0
-    if after_body
-      body_start = self.content.index('<body')
-      body_tag = self.content[body_start..self.content.index('>', body_start)]
-      last_close = self.content.index(body_tag) + body_tag.size
-    end
+    last_close = after_body_index(after_body, last_close)
     done = false
     
     contents = Array.new
@@ -206,5 +252,15 @@ private
     else
       contents << tag if self.content.index(tag) < open || self.content.index(tag) > close
     end
+  end
+  
+  def after_body_index(after_body, last_close)
+    if after_body
+      body_start = self.content.index('<body')
+      body_tag = self.content[body_start..self.content.index('>', body_start)]
+      return last_close = self.content.index(body_tag) + body_tag.size
+    else 
+      return last_close
+    end    
   end
 end

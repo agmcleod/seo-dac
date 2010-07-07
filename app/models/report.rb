@@ -9,7 +9,7 @@ class Report < ActiveRecord::Base
   attr_accessor :content, :sitemap, :images, :h3, :tracking, :keywords, :contextual_links, :url_type
   
   def add_page(content)
-    self.pages << Page.new(:name => "Layer #{self.pages.size}", :content => content)
+    self.pages << Page.new(:name => "Layer #{self.pages.size}", :content => content, :keywords => self.keywords)
     self.content = self.pages[0].content if self.pages.size == 0
   end
   
@@ -42,48 +42,41 @@ class Report < ActiveRecord::Base
   # @param [ActiveRecord Error] errors - passed to allow addition of validation errors
   # @return [void]
   def get_layers(index_page, errors)
-    ul_tags = index_page.get_tags('<ul', false, true, true, true)
-    logger.debug "ul: #{ul_tags.size}"
-      ul_tags.each do |tag|
-      class_index = tag.index(/class=("|')/)
-      unless class_index.nil?
-        class_attribute = tag[(class_index + 7)..tag.index(/"|'/, class_index+7)]
-        if class_attribute.index('layer-nav')
-          href_index = tag.index(/href=("|')/)
-          success = false        
-          unless href_index.nil?
-            href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
-            unless href.blank?
-              logger.debug "href: #{href}"
-              if href[0,1] == '/'
-                #begin
-                  self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")))
-                  success = true
-                #rescue Exception => ex
-                #  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-                #end
-              elsif href.index(/http:\/\/|https:\/\//)
-                #begin
-                  self.add_page(Net::HTTP.get(href))
-                  success = true
-                #rescue Exception => ex
-                  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-                #end
-              else
-                #begin
-                  logger.debug "with-slash"
-                  self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")))
-                  success = true
-                #rescue Exception => ex
-                  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-                #end
-              end
-            end
-          end
-          if success
-            ul_tags = self.pages[self.pages.size - 1].get_tags('<ul', false, true, true, true)
+    tags = index_page.get_tags_with_attribute('class', 'layer_nav', { :after_body => true, :contains => true })
+    tags.each do |tag|
+      href_index = tag.index(/href=("|')/)
+      success = false        
+      unless href_index.nil?
+      href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
+      unless href.blank?
+        logger.debug "href: #{href}"
+        if href[0,1] == '/'
+          #begin
+            self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")))
+            success = true
+          #rescue Exception => ex
+          #  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+          #end
+        elsif href.index(/http:\/\/|https:\/\//)
+          #begin
+            self.add_page(Net::HTTP.get(href))
+            success = true
+          #rescue Exception => ex
+            errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+          #end
+        else
+          #begin
+            logger.debug "with-slash"
+            self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")))
+            success = true
+          #rescue Exception => ex
+            errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+          #end
           end
         end
+      end
+      if success
+        tags = self.pages[self.pages.size - 1].get_tags_with_attribute('class', 'layer_nav', { :after_body => true, :contains => true })
       end
     end
   end
