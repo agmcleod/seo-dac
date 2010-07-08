@@ -42,41 +42,41 @@ class Report < ActiveRecord::Base
   # @param [ActiveRecord Error] errors - passed to allow addition of validation errors
   # @return [void]
   def get_layers(index_page, errors)
-    tags = index_page.get_tags_with_attribute('class', 'layer_nav', { :after_body => true, :contains => true })
+    tags = index_page.get_tags_with_attribute('class', 'layer-nav', { :after_body => true, :contains => true })
     tags.each do |tag|
       href_index = tag.index(/href=("|')/)
       success = false        
       unless href_index.nil?
-      href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
-      unless href.blank?
-        logger.debug "href: #{href}"
-        if href[0,1] == '/'
-          #begin
-            self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")))
-            success = true
-          #rescue Exception => ex
-          #  errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-          #end
-        elsif href.index(/http:\/\/|https:\/\//)
-          #begin
-            self.add_page(Net::HTTP.get(href))
-            success = true
-          #rescue Exception => ex
-            errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-          #end
-        else
-          #begin
-            logger.debug "with-slash"
-            self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")))
-            success = true
-          #rescue Exception => ex
-            errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-          #end
+        href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
+        unless href.blank?
+          if href[0,1] == '/'
+            begin
+             self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")))
+             success = true
+            rescue Exception => ex
+              errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+            end
+          elsif href.index(/http:\/\/|https:\/\//)
+            begin
+             self.add_page(Net::HTTP.get(href))
+             success = true
+            rescue Exception => ex
+              errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+            end
+          else
+            begin
+              logger.debug "with-slash"
+              self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")))
+              success = true
+            rescue Exception => ex
+              errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+            end
           end
         end
-      end
-      if success
-        tags = self.pages[self.pages.size - 1].get_tags_with_attribute('class', 'layer_nav', { :after_body => true, :contains => true })
+        if success
+          tags = self.pages[self.pages.size - 1].get_tags_with_attribute('class', 'layer-nav', { :after_body => true, :contains => true })
+          retry
+        end
       end
     end
   end
@@ -84,14 +84,14 @@ class Report < ActiveRecord::Base
 private
   
   def url_query
-    # begin
+    begin
       self.add_page(Net::HTTP.get(URI.parse(self.domain)))
       if self.url_type == 'domain'
         self.get_layers(self.pages[0], errors)
       end      
-    # rescue Exception => ex
-    # errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
+    rescue Exception => ex
+      errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
       self.content = ""
-    # end
+    end
   end  
 end

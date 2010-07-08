@@ -54,12 +54,12 @@ class Page < ActiveRecord::Base
   # after_body [Boolean] - whether to start after the opening body tag
   # contains [Boolean] - whether the attribute has to just contain the value or equal to it
   def get_tags_with_attribute(*args)
-    attr_name = "#{attr_name}=\"" || nil
+    logger.debug "get_tags_with_attribute call"
+    attr_name = "#{args.first}=\"" || nil
     value = args.second || nil
     return nil if attr_name.nil? || value.nil?
     # options hash
     options = args.third || {}
-    
     tags = Array.new
     done = false
     last_index = 0
@@ -93,8 +93,8 @@ class Page < ActiveRecord::Base
         end
         last_index += 1        
       end
+      attr_index = nil
     end
-    logger.debug "tag size: #{tags.size}"
     tags
   end
   
