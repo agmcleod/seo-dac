@@ -211,6 +211,26 @@ class Page < ActiveRecord::Base
     content.gsub(/<\/?[^>]*>/, "")
   end
   
+  def url_after_domain
+    slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
+    return "#{self.url}/" if slash.nil?
+    self.url[slash..self.url.size-1]
+  end
+  
+  def match_url(url)
+    matched = false
+    logger.debug "url: #{url.downcase}, after: #{self.url_after_domain.downcase}"
+    url_after = self.url_after_domain.downcase
+    # set to relative root if url_after domain contains the domain, and the url parameter is just a /
+    url_after = "/" if url_after.index(/http:\/\/|https:\/\//) && url == '/'
+    if url.downcase == 
+      matched = true
+    elsif url.downcase == self.url.downcase
+      matched = true
+    end
+    return matched
+  end
+  
 private 
   def comment_position_after_last(last)
     return self.content.index("<!--", last)

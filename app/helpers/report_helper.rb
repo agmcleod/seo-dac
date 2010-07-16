@@ -181,11 +181,11 @@ module ReportHelper
       rel = tag.get_tag_attribute "rel"
       if /canonical/ =~ rel
         href = tag.get_tag_attribute 'href'
-        #if href.downcase != report.domain
-        #  out = "#{out}<tr><td>Link/Canonical</td><td><b>Does not match current URL:</b> #{tag.get_tag_attribute('href')}</td></tr>"
-        #else
+        unless report.match_url(href)
+          out = "#{out}<tr><td class=\"report-error-td\">Link/Canonical</td><td class=\"report-error-td\">Does not match current URL: #{tag.get_tag_attribute('href')}</td></tr>"
+        else
           out = "#{out}<tr><td>Link/Canonical</td><td>#{tag.get_tag_attribute('href')}</td></tr>"
-        #end
+        end
       end
     end
     return "<tr><td class=\"report-error-td\">Link/Canonical</td><td class=\"report-error-td\">

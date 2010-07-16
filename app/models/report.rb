@@ -8,8 +8,8 @@ class Report < ActiveRecord::Base
   
   attr_accessor :content, :sitemap, :images, :h3, :tracking, :keywords, :contextual_links, :url_type
   
-  def add_page(content)
-    self.pages << Page.new(:name => "Layer #{self.pages.size}", :content => content, :keywords => self.keywords)
+  def add_page(content, url)
+    self.pages << Page.new(:name => "Layer #{self.pages.size}", :content => content, :keywords => self.keywords, :url => url)
     self.content = self.pages[0].content if self.pages.size == 0
   end
   
@@ -51,22 +51,21 @@ class Report < ActiveRecord::Base
         unless href.blank?
           if href[0,1] == '/'
             begin
-             self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")))
+             self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")), "#{self.domain_no_slash}#{href}")
              success = true
             rescue Exception => ex
               errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
             end
           elsif href.index(/http:\/\/|https:\/\//)
             begin
-             self.add_page(Net::HTTP.get(href))
+             self.add_page(Net::HTTP.get(href), href)
              success = true
             rescue Exception => ex
               errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
             end
           else
             begin
-              logger.debug "with-slash"
-              self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")))
+              self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")), "#{self.domain_with_slash}#{href}")
               success = true
             rescue Exception => ex
               errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
@@ -85,7 +84,7 @@ private
   
   def url_query
     begin
-      self.add_page(Net::HTTP.get(URI.parse(self.domain)))
+      self.add_page(Net::HTTP.get(URI.parse(self.domain)), self.domain)
       if self.url_type == 'domain'
         self.get_layers(self.pages[0], errors)
       end      
