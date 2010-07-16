@@ -211,8 +211,13 @@ class Page < ActiveRecord::Base
     content.gsub(/<\/?[^>]*>/, "")
   end
   
-  def url_after_domain
-    slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
+  def url_after_domain(given_url = nil)
+    slash = ""
+    if given_url.nil?
+      slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
+    else
+      slash = self.given_url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
+    end
     return "#{self.url}/" if slash.nil?
     self.url[slash..self.url.size-1]
   end
@@ -220,6 +225,7 @@ class Page < ActiveRecord::Base
   def match_url(url)
     matched = false
     logger.debug "url: #{url.downcase}, after: #{self.url_after_domain.downcase}"
+    url = self.url_after_domain(url)
     url_after = self.url_after_domain.downcase
     # set to relative root if url_after domain contains the domain, and the url parameter is just a /
     url_after = "/" if url_after.index(/http:\/\/|https:\/\//) && url == '/'
