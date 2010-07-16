@@ -223,7 +223,7 @@ class Page < ActiveRecord::Base
     url_after = self.url_after_domain.downcase
     # set to relative root if url_after domain contains the domain, and the url parameter is just a /
     url_after = "/" if url_after.index(/http:\/\/|https:\/\//) && url == '/'
-    if url.downcase == 
+    if url.downcase == url_after
       matched = true
     elsif url.downcase == self.url.downcase
       matched = true
