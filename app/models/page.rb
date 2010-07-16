@@ -214,13 +214,15 @@ class Page < ActiveRecord::Base
   def url_after_domain(given_url = nil)
     slash = ""
     if given_url.nil?
-      slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
+      slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//))
       return "#{self.url}/" if slash.nil?
-      self.url[slash..self.url.size-1]
+      slash += 8
+      return self.url[slash..self.url.size-1]
     else
-      slash = given_url.index('/', given_url.index(/http:\/\/|https:\/\//)+8)
+      slash = given_url.index('/', given_url.index(/http:\/\/|https:\/\//))
       return "#{given_url}/" if slash.nil?
-      given_url[slash..given_url.size-1]
+      slash += 8
+      return given_url[slash..given_url.size-1]
     end
   end
   
