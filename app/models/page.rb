@@ -216,7 +216,7 @@ class Page < ActiveRecord::Base
     if given_url.nil?
       slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
     else
-      slash = self.given_url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
+      slash = given_url.index('/', self.url.index(/http:\/\/|https:\/\//)+8)
     end
     return "#{self.url}/" if slash.nil?
     self.url[slash..self.url.size-1]
