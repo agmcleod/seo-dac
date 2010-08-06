@@ -214,23 +214,19 @@ class Page < ActiveRecord::Base
   def url_after_domain(given_url = nil)
     slash = ""
     if given_url.nil?
-      slash = self.url.index('/', self.url.index(/http:\/\/|https:\/\//))
-      return "#{self.url}/" if slash.nil?
-      slash += 8
-      return self.url[slash..self.url.size-1]
-    else
-      http = given_url.index(/http:\/\/|https:\/\//)
-      return given_url if http.nil?
-      slash = given_url.index('/', http)
-      return "#{given_url}/" if slash.nil?
-      slash += 8
-      return given_url[slash..given_url.size-1]
+      given_url = self.url
     end
+    http = given_url.index(/http:\/\/|https:\/\//)
+    return given_url if http.nil?
+    http += 8
+    slash = given_url.index('/', http)
+    return "#{given_url}/" if slash.nil?
+    return given_url[slash..given_url.size-1]
   end
   
   def match_url(url)
     matched = false
-    logger.debug "url: #{url.downcase}, after: #{self.url_after_domain.downcase}"
+    # logger.debug "url: #{url.downcase}, after: #{self.url_after_domain.downcase}"
     url = self.url_after_domain(url)
     url_after = self.url_after_domain.downcase
     # set to relative root if url_after domain contains the domain, and the url parameter is just a /
