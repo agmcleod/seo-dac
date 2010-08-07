@@ -10,8 +10,10 @@ class Page < ActiveRecord::Base
     tags = self.get_tags("<title>")
   end
   
+  # Returns an array of tags containing <img />, <area> and <input type="submit" />
   def image_tags
-    tags = self.get_tags("<img", true)
+    tags = self.get_tags("<img", true, true) + self.get_tags("<area", true, true) + 
+      self.get_tags_with_attribute('type', 'image', { :after_body => true, :contains => false })
   end
   
   def link_tags
@@ -77,11 +79,11 @@ class Page < ActiveRecord::Base
           # check to ensure the first < doesn't have a closing > before the attribute
           unless self.content.index('>', tag_start) < attr_index
             end_ele = self.content.index(/>|\/>/, tag_start)
-            if self.content[end_ele,1] == '>'
+            if self.content[end_ele,2] == '/>'
+              tag_end = end_ele + 1
+            elsif self.content[end_ele,1] == '>'
               tag_name = self.content[(tag_start + 1)..self.content.index(/\s/, tag_start)-1]
               tag_end = self.content.index("</#{tag_name}>", end_ele) + (tag_name.size+3)
-            elsif self.content[end_ele,2] == '/>'
-              tag_end = end_ele + 1
             end
             last_index = end_ele
             tags << self.content[tag_start..tag_end]

@@ -129,12 +129,15 @@ module ReportHelper
     tag_contents.each do |content|
       alt = content.get_tag_attribute('alt')
       src = content.get_tag_attribute('src')
+      
       if alt.blank?
         out = bad_image(counter, out, src)
+      elsif src.empty?
+        out = "#{out}<tr><td class=\"report-warning-td\">Image ##{counter}</td><td class=\"report-warning-td\">alt value: #{alt} | src attribute was empty. It may be an area tag, check for broken images to be sure</td></tr>"
       elsif !src.nil?
         out = "#{out}<tr><td>Image ##{counter}</td><td>alt value: #{alt}</td></tr>"
       else
-        out = "#{out}<tr class=\"report-error-td\"><td>Image ##{counter}</td><td class=\"report-error-td\">Image is broken, review src attribute</td></tr>"
+        out = "#{out}<tr><td class=\"report-error-td\">Image ##{counter}</td><td class=\"report-error-td\">Image is broken, review src attribute</td></tr>"
       end
       counter += 1
     end
