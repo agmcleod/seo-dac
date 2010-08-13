@@ -44,7 +44,20 @@ class Report < ActiveRecord::Base
   def get_layers(index_page, errors)
     tags = index_page.get_tags_with_attribute('class', 'layer-nav', { :after_body => true, :contains => true })
     tags.each do |tag|
-      href_index = tag.index(/href=("|')/)
+      indexes = Array.new
+      done = false
+      last = 0
+      until done
+        idx = tag.index(/href=("|')/, last)
+        unless idx.nil?
+          last = idx + 1
+          indexes << idx
+        else
+          done = true
+        end
+      end
+      indexes = indexes.sort_by { rand }
+      href_index = indexes[0]
       success = false        
       unless href_index.nil?
         href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
