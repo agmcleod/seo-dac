@@ -3,9 +3,9 @@ class String
     index = (self.index(/#{attribute}=/i) || 0) + (attribute.size + 2)
     return "" if index.nil?
     if self[index-1,0] == "'"    
-      end_index = self.index(/'/i, index)-1
+      end_index = self.index(/'/, index)-1
     else
-      end_index = self.index(/"/i, index)-1
+      end_index = self.index(/"/, index)-1
     end
     return "" if end_index.nil?
     self[index..end_index] || ""
@@ -201,6 +201,7 @@ module ReportHelper
     tag_contents = report.meta_tags
     counter = 1
     tag_contents.each do |tag|
+      Rails.logger.debug "metaTag: #{tag}"
       name = tag.get_tag_attribute "name"
       content = tag.get_tag_attribute "content"
       if /description/ =~ name && !content.nil? && !content.blank?

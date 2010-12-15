@@ -1,915 +1,921 @@
-  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mSQL (10.4ms)[0m   [0;1mSHOW TABLES[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
-  [4;36;1mSQL (26.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
-  [4;35;1mSQL (0.7ms)[0m   [0mSHOW TABLES[0m
-  [4;36;1mSQL (4.2ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-  [4;35;1mSQL (1.3ms)[0m   [0mdescribe `reports`[0m
-  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `reports`[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:25:52) [GET]
-
-ActionController::RoutingError (No route matches "/" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:27:14) [GET]
-
-NameError (uninitialized constant ReportsControllerController):
-  
-
-Rendered rescues/_trace (31.4ms)
-Rendered rescues/_request_and_response (1.2ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:27:32) [GET]
-
-NameError (uninitialized constant ReportsController):
-  
-
-Rendered rescues/_trace (29.3ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:29:01) [GET]
-
-NameError (uninitialized constant ReportsController):
-  
-
-Rendered rescues/_trace (29.5ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:34:17) [GET]
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:29:40) [GET]
   [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
 Rendering template within layouts/seo
 Rendering report/index
-ERROR: compiling _run_erb_app47views47report47index46html46erb RAISED compile error
-/Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:4: syntax error, unexpected ')'
-...rt, :url => root_path do |f| ).to_s)
-                              ^
-/Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:86: syntax error, unexpected kENSURE, expecting ')'
-/Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:88: syntax error, unexpected kEND, expecting ')'
-Function body:           def _run_erb_app47views47report47index46html46erb(local_assigns)
-            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>SEO Report Program</h1>\n<h3>Use the form below to generate an SEO report on the pagetorrent program</h3>\n<div>\n  "
-
-
-; @output_buffer.concat(( form_for @report, :url => root_path do |f| ).to_s)
-@output_buffer.concat "    "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n    <p>\n      <b>"
-
-; @output_buffer.concat(( f.label :domain, "Domain: " ).to_s); @output_buffer.concat "</b>\n      "
-; @output_buffer.concat(( f.text_field :domain, :class => 'domain-field', :autofocus => 'true' ).to_s); @output_buffer.concat "      \n      <br />\n      <span class=\"small-tip\">Example: http://local.domain.com</span>\n    </p>\n    <p>\n      <span class=\"small-label\">"
-
-
-
-
-; @output_buffer.concat(( f.label :keywords, "Keywords: " ).to_s); @output_buffer.concat "</span>\n      "
-; @output_buffer.concat(( f.text_field :keywords ).to_s); @output_buffer.concat "\n      <br />\n      <span class=\"small-tip\">Separate keywords by commas. Ex: lawn care,florida</span>\n    </p>\n    <p>\n      <b>Include:</b>\n      "
-
-
-
-
-
-; @output_buffer.concat(( show_options(f).html_safe ).to_s); @output_buffer.concat "\n    </p>\n    <p>\n      "
-
-
-; @output_buffer.concat(( f.submit "Report" ).to_s); @output_buffer.concat "\n    </p>\n  "
-
-;  end 
-@output_buffer.concat "</div>\n"
-;  unless @report.content.blank? 
-@output_buffer.concat "  <div id=\"report\">\n    <div id=\"report-header\">\n      <h4>Report response:</h4>\n      <div id=\"legend\">\n        <div id=\"warning-example\">\n          <p id=\"warning-label\">Warning:</p>\n          <div id=\"warning-colour\"></div>\n        </div>\n        <div id=\"error-example\">\n          <p id=\"error-label\">Error:</p>\n          <div id=\"error-colour\"></div>\n        </div>\n      </div>\n      <div class=\"clear\"></div>\n      <table id=\"report-table\">\n        <thead>\n          <tr><th>Element</th><th id=\"content-col\">Content</th></tr>\n        </thead>\n        <tbody>\n          "
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-; @output_buffer.concat(( display_title_report(@report) ).to_s); @output_buffer.concat "\n          "
-;  unless @report.keywords.blank? 
-@output_buffer.concat "            "; @output_buffer.concat(( keywords_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-;  end 
-@output_buffer.concat "          "; @output_buffer.concat(( display_description_meta_tag_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-; @output_buffer.concat(( display_h1_report(@report) ).to_s); @output_buffer.concat "\n          "
-; @output_buffer.concat(( display_h_report(@report, 'h2') ).to_s); @output_buffer.concat "\n          "
-;  if @report.h3 == "y" 
-@output_buffer.concat "            "; @output_buffer.concat(( display_h_report(@report, 'h3') ).to_s); @output_buffer.concat "\n          "
-;  end 
-@output_buffer.concat "          "; @output_buffer.concat(( display_canonical_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-; @output_buffer.concat(( display_invalid_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-;  if @report.sitemap == "y" 
-@output_buffer.concat "            "; @output_buffer.concat(( display_sitemap_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-;  end 
-@output_buffer.concat "          ";  if @report.tracking == "y" 
-@output_buffer.concat "            "; @output_buffer.concat(( display_tracking_report(@report) ).to_s); @output_buffer.concat "\n          "
-;  end 
-@output_buffer.concat "          ";  if @report.images == "y" 
-@output_buffer.concat "            "; @output_buffer.concat(( display_image_alt_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-;  end 
-@output_buffer.concat "          ";  if @report.contextual_links == "y" 
-@output_buffer.concat "            "; @output_buffer.concat(( contextual_links_report(@report).html_safe ).to_s); @output_buffer.concat "\n          "
-;  end 
-@output_buffer.concat "          <tr>\n            <td>\n              Source\n            </td>\n            <td>\n              <p>"
-
-
-
-
-; @output_buffer.concat(( link_to "show source", root_path, :id => 'show-source' ).to_s); @output_buffer.concat "</p>\n              <p id=\"source-code\">"
-; @output_buffer.concat(( @report.content ).to_s); @output_buffer.concat "</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n"
-
-
-
-
-
-
-;  end 
-@output_buffer
-          ensure
-            self.output_buffer = old_output_buffer
-          end
-Backtrace: /Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:88:in `compile!'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:61:in `compile'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/renderable.rb:28:in `render'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/template.rb:205:in `render_template'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:265:in `render'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:348:in `_render_with_layout'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_view/base.rb:262:in `render'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1250:in `render_for_file'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:945:in `render_without_benchmark'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
-/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
-/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:51:in `render'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1326:in `default_render'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:1332:in `perform_action_without_filters'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:617:in `call_filters'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
-/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
-/Library/Ruby/Gems/1.8/gems/activesupport-2.3.5/lib/active_support/core_ext/benchmark.rb:17:in `ms'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/flash.rb:146:in `perform_action'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `send'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:532:in `process_without_filters'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/filters.rb:606:in `process'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:391:in `process'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/base.rb:386:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/routing/route_set.rb:437:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:87:in `dispatch'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:121:in `_call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
-/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
-/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:29:in `call'
-/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
-/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:9:in `cache'
-/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/query_cache.rb:28:in `call'
-/Library/Ruby/Gems/1.8/gems/activerecord-2.3.5/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/string_coercion.rb:25:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/head.rb:9:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/methodoverride.rb:24:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/params_parser.rb:15:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/session/cookie_store.rb:93:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/failsafe.rb:26:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `synchronize'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/lock.rb:11:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:114:in `call'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/reloader.rb:34:in `run'
-/Library/Ruby/Gems/1.8/gems/actionpack-2.3.5/lib/action_controller/dispatcher.rb:108:in `call'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/static.rb:31:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:46:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `each'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/urlmap.rb:40:in `call'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/rails/rack/log_tailer.rb:17:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/content_length.rb:13:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/chunked.rb:15:in `call'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:64:in `process'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
-/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
-/Library/Ruby/Gems/1.8/gems/rack-1.0.1/lib/rack/handler/mongrel.rb:34:in `run'
-/Library/Ruby/Gems/1.8/gems/rails-2.3.5/lib/commands/server.rb:111
-/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
-/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
-script/server:3
-
-ActionView::TemplateError (compile error
-/Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:4: syntax error, unexpected ')'
-...rt, :url => root_path do |f| ).to_s)
-                              ^
-/Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:86: syntax error, unexpected kENSURE, expecting ')'
-/Users/aaronmcleod/Documents/work/seo/app/views/report/index.html.erb:88: syntax error, unexpected kEND, expecting ')') on line #4 of app/views/report/index.html.erb:
-1: <h1>SEO Report Program</h1>
-2: <h3>Use the form below to generate an SEO report on the pagetorrent program</h3>
-3: <div>
-4:   <%= form_for @report, :url => root_path do |f| -%>
-5:     <%= f.error_messages %>
-6:     <p>
-7:       <b><%= f.label :domain, "Domain: " %></b>
-
-    app/views/report/index.html.erb:88:in `compile!'
-
-Rendered rescues/_trace (96.3ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
+Completed in 21ms (View: 12, DB: 2) | 200 OK [http://localhost/]
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:34:38) [GET]
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:29:45) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"n4K0Syzd6EjyOvu8qj8h+2rBpGrm/Tx8Z32fjsevwJ8="}
   [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+attr_value: cta | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: go-btn | value: layer-nav | contains: true
+attr_value: header-txt | value: layer-nav | contains: true
+attr_value: header-small | value: layer-nav | contains: true
+attr_value: header-small | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: footer | value: layer-nav | contains: true
+attr_value: layer-nav | value: layer-nav | contains: true
+tag
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+attr_value: location | value: layer-nav | contains: true
+attr_value: cta | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: loc-info | value: layer-nav | contains: true
+attr_value: loc-name | value: layer-nav | contains: true
+attr_value: layer-nav | value: layer-nav | contains: true
+attr_value: call | value: layer-nav | contains: true
+attr_value: list-header | value: layer-nav | contains: true
+attr_value: bullet | value: layer-nav | contains: true
+attr_value: header-txt | value: layer-nav | contains: true
+attr_value: header-small | value: layer-nav | contains: true
+attr_value: header-small | value: layer-nav | contains: true
+attr_value: clear | value: layer-nav | contains: true
+attr_value: footer | value: layer-nav | contains: true
+tags 1
 Rendering template within layouts/seo
 Rendering report/index
-
-ActionView::TemplateError (undefined method `html_safe' for #<String:0x101d4c310>) on line #20 of app/views/report/index.html.erb:
-17:     </p>
-18:     <p>
-19:       <b>Include:</b>
-20:       <%= show_options(f).html_safe %>
-21:     </p>
-22:     <p>
-23:       <%= f.submit "Report" %>
-
-    app/views/report/index.html.erb:20
-    app/views/report/index.html.erb:4
-
-Rendered rescues/_trace (97.2ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:35:33) [GET]
-  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-
-ActionView::TemplateError (undefined local variable or method `notice' for #<ActionView::Base:0x10213a0f8>) on line #11 of app/views/layouts/seo.html.erb:
-8:   </head>
-9:   <body>
-10:     <div id="container">
-11:       <p class="notice"><%= notice %></p>
-12:       <%= yield %>
-13:     </div>
-14:   </body>
-
-    app/views/layouts/seo.html.erb:11
-
-Rendered rescues/_trace (41.9ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
+Completed in 7575ms (View: 30, DB: 3) | 200 OK [http://localhost/]
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:36:18) [GET]
-  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:30:50) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"n4K0Syzd6EjyOvu8qj8h+2rBpGrm/Tx8Z32fjsevwJ8="}
+  [4;35;1mReport Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tag
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tags 1
 Rendering template within layouts/seo
 Rendering report/index
-Completed in 24ms (View: 14, DB: 1) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:36:18) [GET]
-
-ActionController::RoutingError (No route matches "/stylesheets/seo.css" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:36:18) [GET]
-
-ActionController::RoutingError (No route matches "/javascripts/jquery-1.4.2.min" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:36:18) [GET]
-
-ActionController::RoutingError (No route matches "/javascripts/myscripts.js" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:37:31) [GET]
-  [4;36;1mReport Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 18ms (View: 8, DB: 2) | 200 OK [http://localhost/]
+Completed in 7789ms (View: 30, DB: 3) | 200 OK [http://localhost/]
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:37:47) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:32:12) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"n4K0Syzd6EjyOvu8qj8h+2rBpGrm/Tx8Z32fjsevwJ8="}
   [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 581ms (View: 55, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/css/dac/trugreen/css/trugreenStyle.css" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/css/dac/Global/js/jquery-1.4.2.min.js" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-  Parameters: {"detailId"=>"1064", "browser"=>"4"}
-
-ActionController::RoutingError (No route matches "/app/wa/artifactCss" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/images/footer-leaf.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/images/truGreenLogo.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/images/wrapper-Bottom.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/servicemaster_small.gif" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:48) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/images/truGreenLogo.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:49) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/TruGreen_1-03-small.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:49) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/images/footer-leaf.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:49) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/images/wrapper-Bottom.png" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 17:37:49) [GET]
-
-ActionController::RoutingError (No route matches "/app/ImageRepository/60/servicemaster_small.gif" with {:method=>:get}):
-  
-
-Rendering rescues/layout (not_found)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:38:19) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 486ms (View: 18, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:38:40) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 474ms (View: 67, DB: 1) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:38:52) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 396ms (View: 18, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:39:33) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 582ms (View: 128, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:41:37) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1612ms (View: 1165, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 17:41:57) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"y", "domain"=>"http://local.trugreen.com", "images"=>"y", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1561ms (View: 1176, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 18:07:38) [GET]
-
-SyntaxError (/Users/aaronmcleod/Documents/work/seo/app/controllers/report_controller.rb:12: syntax error, unexpected kELSE, expecting ')'):
-  
-
-Rendered rescues/_trace (32.7ms)
-Rendered rescues/_request_and_response (1.2ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 18:07:48) [GET]
-
-SyntaxError (/Users/aaronmcleod/Documents/work/seo/app/controllers/report_controller.rb:12: syntax error, unexpected kELSE, expecting ')'):
-  
-
-Rendered rescues/_trace (33.1ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ApplicationController#index (for 127.0.0.1 at 2010-06-07 18:07:50) [GET]
-
-SyntaxError (/Users/aaronmcleod/Documents/work/seo/app/controllers/report_controller.rb:12: syntax error, unexpected kELSE, expecting ')'):
-  
-
-Rendered rescues/_trace (87.8ms)
-Rendered rescues/_request_and_response (0.3ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 18:08:08) [GET]
-  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 39ms (View: 30, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 18:08:29) [GET]
-  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 16ms (View: 8, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 18:08:37) [POST]
-  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;36;1mReport Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 432ms (View: 12, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-07 18:08:44) [POST]
-  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"FhZd91x6efknXqCVYbkcJ7JhG+GfFFRoX8kmbrWrjZ4="}
-  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1505ms (View: 1174, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:00) [GET]
-  [4;36;1mReport Columns (45.6ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 111ms (View: 56, DB: 46) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:11) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"http://local-movers.williamsmoving.com/", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;35;1mReport Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 322ms (View: 9, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:15) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local-movers.williamsmoving.com/", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 347ms (View: 11, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 12:50:25) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 351ms (View: 12, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:11:44) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 543ms (View: 258, DB: 1) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:11:53) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1638ms (View: 1141, DB: 2) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:12:00) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1436ms (View: 1162, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:12:05) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com/", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;35;1mReport Columns (51.6ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 4053ms (View: 1518, DB: 52) | 200 OK [http://localhost/]
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:12:14) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com/Lawn-Care", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1464ms (View: 1174, DB: 2) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-08 13:13:12) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"y", "tracking"=>"n", "domain"=>"http://local.trugreen.com/Lawn-Care", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JSW7akQG+eUcsMiCJ+syZUIAnhX+zdYV4IFdolRFip8="}
-  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-xml: 0
-Completed in 1520ms (View: 1153, DB: 2) | 200 OK [http://localhost/]
-/!\ FAILSAFE /!\  Wed Jun 16 19:10:13 -0400 2010
-  Status: 500 Internal Server Error
-  Unknown database 'report_development'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `real_connect'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `connect'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:203:in `initialize'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `new'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `mysql_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
-    /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
-    /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
-    /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
-    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
-    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
-    script/server:3
-/!\ FAILSAFE /!\  Wed Jun 16 19:10:38 -0400 2010
-  Status: 500 Internal Server Error
-  Unknown database 'report_development'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `real_connect'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:619:in `connect'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:203:in `initialize'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `new'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/mysql_adapter.rb:75:in `mysql_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/monitor.rb:242:in `synchronize'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
-    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
-    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
-    /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
-    /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
-    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
-    /Users/aaronmcleod/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
-    /Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
-    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
-    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
-    script/server:3
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:10:46) [GET]
-  [4;36;1mReport Columns (18.0ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
-Rendering template within layouts/seo
-Rendering report/index
-Completed in 63ms (View: 37, DB: 18) | 200 OK [http://localhost/]
-  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
-
-
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:11:09) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"CVM4YGqf2OQIMTPeEbMp/doGIfopCB/TUIZwXsT9o5c="}
-  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
-
-NameError (undefined local variable or method `flash' for #<Report id: nil, domain: "", created_at: nil, updated_at: nil>):
-  app/models/report.rb:185:in `url_query'
+  [4;36;1mPage Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tag
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tags 1
+tag
+with-slash
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+
+NameError (undefined local variable or method `ex' for #<Report:0x10345c7a8>):
+  app/models/report.rb:73:in `get_layers'
+  app/models/report.rb:46:in `each'
+  app/models/report.rb:46:in `get_layers'
+  app/models/report.rb:92:in `url_query'
   app/controllers/report_controller.rb:8:in `index'
 
-Rendered rescues/_trace (39.6ms)
-Rendered rescues/_request_and_response (1.4ms)
+Rendered rescues/_trace (39.3ms)
+Rendered rescues/_request_and_response (0.4ms)
 Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:11:28) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"CVM4YGqf2OQIMTPeEbMp/doGIfopCB/TUIZwXsT9o5c="}
-  [4;36;1mReport Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:32:39) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"n4K0Syzd6EjyOvu8qj8h+2rBpGrm/Tx8Z32fjsevwJ8="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tag
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tags 1
+tag
+with-slash
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+tags 0
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 8268ms (View: 33, DB: 4) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
-NameError (undefined local variable or method `flash' for #<Report id: nil, domain: "", created_at: nil, updated_at: nil>):
-  app/models/report.rb:185:in `url_query'
-  app/controllers/report_controller.rb:8:in `index'
 
-Rendered rescues/_trace (41.7ms)
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:34:40) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"n4K0Syzd6EjyOvu8qj8h+2rBpGrm/Tx8Z32fjsevwJ8="}
+
+SyntaxError (/Users/aaronmcleod/Documents/work/seo/app/models/report.rb:96: syntax error, unexpected $end, expecting kEND):
+  app/controllers/report_controller.rb:7:in `index'
+
+Rendered rescues/_trace (37.0ms)
 Rendered rescues/_request_and_response (0.5ms)
 Rendering rescues/layout (internal_server_error)
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:14:52) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"CVM4YGqf2OQIMTPeEbMp/doGIfopCB/TUIZwXsT9o5c="}
-  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Processing ReportController#index (for 127.0.0.1 at 2010-07-07 21:35:02) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"n4K0Syzd6EjyOvu8qj8h+2rBpGrm/Tx8Z32fjsevwJ8="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+with-slash
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
 Rendering template within layouts/seo
 Rendering report/index
-Completed in 131ms (View: 47, DB: 1) | 200 OK [http://localhost/]
+Completed in 8828ms (View: 32, DB: 4) | 200 OK [http://localhost/]
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (34.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (17.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateReports (20100607212003)
+Migrating to CreatePages (20100629023447)
+Migrating to AddUrlToPage (20100715221157)
+  [4;36;1mSQL (97.3ms)[0m   [0;1mALTER TABLE `pages` ADD `url` varchar(255)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100715221157')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (42.5ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mdescribe `reports`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `reports`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:15:02) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"CVM4YGqf2OQIMTPeEbMp/doGIfopCB/TUIZwXsT9o5c="}
-  [4;36;1mReport Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:50:23) [GET]
+  [4;36;1mReport Columns (57.6ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
 Rendering template within layouts/seo
 Rendering report/index
-Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+Completed in 179ms (View: 88, DB: 58) | 200 OK [http://localhost/]
   [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:17:00) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"CVM4YGqf2OQIMTPeEbMp/doGIfopCB/TUIZwXsT9o5c="}
-  [4;35;1mReport Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:50:32) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
 Rendering template within layouts/seo
 Rendering report/index
-Completed in 549ms (View: 11, DB: 1) | 200 OK [http://localhost/]
+Completed in 3891ms (View: 18, DB: 2) | 200 OK [http://localhost/]
   [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
   [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
 
 
-Processing ReportController#index (for 127.0.0.1 at 2010-06-16 19:17:07) [POST]
-  Parameters: {"report"=>{"h3"=>"n", "contextual_links"=>"n", "sitemap"=>"n", "tracking"=>"n", "domain"=>"", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"CVM4YGqf2OQIMTPeEbMp/doGIfopCB/TUIZwXsT9o5c="}
-  [4;36;1mReport Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:51:16) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;36;1mReport Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mPage Columns (72.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
 Rendering template within layouts/seo
 Rendering report/index
-Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/]
+
+ActionView::TemplateError (undefined method `domain' for nil:NilClass) on line #74 of app/views/report/index.html.erb:
+71:                 <% if @report.h3 == "y" -%>
+72:                   <%= display_h_report(page, 'h3') %>
+73:                 <% end -%>
+74:                 <%= display_canonical_report(page) %>
+75:                 <%= display_invalid_report(page) %>
+76:                 <% if @report.sitemap == "y" -%>
+77:                   <%= display_sitemap_report(@report) %>
+
+    app/models/page.rb:224:in `match_url'
+    app/helpers/report_helper.rb:184:in `display_canonical_report'
+    app/helpers/report_helper.rb:180:in `each'
+    app/helpers/report_helper.rb:180:in `display_canonical_report'
+    app/views/report/index.html.erb:74
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (121.6ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:52:13) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mPage Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 4243ms (View: 90, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:54:41) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mPage Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+
+ActionView::TemplateError (undefined method `user_after_domain' for #<Page:0x1035d2858>) on line #74 of app/views/report/index.html.erb:
+71:                 <% if @report.h3 == "y" -%>
+72:                   <%= display_h_report(page, 'h3') %>
+73:                 <% end -%>
+74:                 <%= display_canonical_report(page) %>
+75:                 <%= display_invalid_report(page) %>
+76:                 <% if @report.sitemap == "y" -%>
+77:                   <%= display_sitemap_report(@report) %>
+
+    app/models/page.rb:222:in `match_url'
+    app/helpers/report_helper.rb:184:in `display_canonical_report'
+    app/helpers/report_helper.rb:180:in `each'
+    app/helpers/report_helper.rb:180:in `display_canonical_report'
+    app/views/report/index.html.erb:74
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (45.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:54:54) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;36;1mReport Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mPage Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com
+Completed in 3837ms (View: 28, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:58:44) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;36;1mReport Columns (1.6ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mPage Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+Completed in 3105ms (View: 28, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-15 21:58:55) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"JuC0gduOxcWgIRNtHyNi2wUOF9X2d8/YWDrCySgtoQM="}
+  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+  [4;35;1mPage Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+get_tags_with_attribute call
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+get_tags_with_attribute call
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: /custom-rims-in-100-mile-house-bc
+url: http://find.kaltire.com/100-mile-house-bc-in-100-mile-house-bc/49, after: /custom-rims-in-100-mile-house-bc/49
+Completed in 4587ms (View: 34, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-17 19:04:28) [GET]
+  [4;36;1mReport Columns (91.0ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 517ms (View: 316, DB: 92) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-17 19:04:36) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"AS6cG2nP5gYwzGRGIPZMX7zzFlJbQlpO1Rfdod7N1sA="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (98.8ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: e.pagetorrent.com
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: e.pagetorrent.com/custom-rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: e.pagetorrent.com/custom-rims-in-100-mile-house-bc/49
+Completed in 5354ms (View: 86, DB: 101) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-07-17 19:04:41) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"AS6cG2nP5gYwzGRGIPZMX7zzFlJbQlpO1Rfdod7N1sA="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: e.pagetorrent.com
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: e.pagetorrent.com/custom-rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: e.pagetorrent.com/custom-rims-in-100-mile-house-bc/49
+Completed in 6723ms (View: 32, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:30:11) [GET]
+  [4;36;1mReport Columns (35.5ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 216ms (View: 133, DB: 36) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:31:16) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (88.9ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: e.pagetorrent.com
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: e.pagetorrent.com/custom-rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: e.pagetorrent.com/custom-rims-in-100-mile-house-bc/49
+Completed in 5665ms (View: 85, DB: 91) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:36:02) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: rims-in-100-mile-house-bc/49
+Completed in 5708ms (View: 34, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:37:29) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: rims-in-100-mile-house-bc/49
+Completed in 4651ms (View: 34, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:39:39) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: rims-in-100-mile-house-bc/49
+Completed in 4349ms (View: 33, DB: 4) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:45:16) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: rims-in-100-mile-house-bc/49
+Completed in 5646ms (View: 34, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 22:59:20) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.+) on line #74 of app/views/report/index.html.erb:
+71:                 <% if @report.h3 == "y" -%>
+72:                   <%= display_h_report(page, 'h3') %>
+73:                 <% end -%>
+74:                 <%= display_canonical_report(page) %>
+75:                 <%= display_invalid_report(page) %>
+76:                 <% if @report.sitemap == "y" -%>
+77:                   <%= display_sitemap_report(@report) %>
+
+    app/models/page.rb:219:in `url_after_domain'
+    app/models/page.rb:229:in `match_url'
+    app/helpers/report_helper.rb:184:in `display_canonical_report'
+    app/helpers/report_helper.rb:180:in `each'
+    app/helpers/report_helper.rb:180:in `display_canonical_report'
+    app/views/report/index.html.erb:74
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (45.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:00:23) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://kaltire.pagetorrent.com/
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc, after: /custom-rims-in-100-mile-house-bc
+url: http://find.kaltire.com/custom-rims-in-100-mile-house-bc/49, after: /custom-rims-in-100-mile-house-bc/49
+Completed in 4707ms (View: 36, DB: 4) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:00:53) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"dac.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (47.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+url: /, after: http://dac.pagetorrent.com/
+Completed in 1698ms (View: 25, DB: 49) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:04:24) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 4863ms (View: 34, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:30:53) [GET]
+  [4;36;1mReport Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 43ms (View: 28, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:31:34) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://www.dacgroup.com", "images"=>"y", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.-) on line #83 of app/views/report/index.html.erb:
+80:                   <%= display_tracking_report(page) %>
+81:                 <% end -%>
+82:                 <% if @report.images == "y" -%>
+83:                   <%= display_image_alt_report(page) %>
+84:                 <% end -%>
+85:                 <% if @report.contextual_links == "y" -%>
+86:                   <%= contextual_links_report(page) %>
+
+    app/models/page.rb:140:in `get_tags'
+    app/models/page.rb:15:in `image_tags'
+    app/helpers/report_helper.rb:127:in `display_image_alt_report'
+    app/views/report/index.html.erb:83
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (48.9ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:32:13) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://www.dacgroup.com", "images"=>"y", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+get_tags_with_attribute call
+Completed in 237ms (View: 14, DB: 4) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-05 23:32:41) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://local.trugreen.com", "images"=>"y", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"PYUWqDtN3BEeaeGp0tYH4q5Ebx/a2L6VaF2txGkk3i8="}
+  [4;35;1mReport Columns (40.9ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+get_tags_with_attribute call
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.-) on line #83 of app/views/report/index.html.erb:
+80:                   <%= display_tracking_report(page) %>
+81:                 <% end -%>
+82:                 <% if @report.images == "y" -%>
+83:                   <%= display_image_alt_report(page) %>
+84:                 <% end -%>
+85:                 <% if @report.contextual_links == "y" -%>
+86:                   <%= contextual_links_report(page) %>
+
+    app/helpers/report_helper.rb:8:in `get_tag_attribute'
+    app/helpers/report_helper.rb:130:in `display_image_alt_report'
+    app/helpers/report_helper.rb:129:in `each'
+    app/helpers/report_helper.rb:129:in `display_image_alt_report'
+    app/views/report/index.html.erb:83
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (113.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-07 17:33:06) [GET]
+  [4;36;1mReport Columns (51.8ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 238ms (View: 138, DB: 52) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-07 17:40:26) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://dacgroup.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"zMtMIpAyzQozbKNFThJtMbQWIxZ4drHac6BPUKuorrc="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (34.5ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 383ms (View: 13, DB: 36) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-07 17:40:33) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://dacgroup.com", "images"=>"y", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"zMtMIpAyzQozbKNFThJtMbQWIxZ4drHac6BPUKuorrc="}
+  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+get_tags_with_attribute call
+Completed in 217ms (View: 13, DB: 3) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-07 17:40:52) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://local.bficanada.com", "images"=>"y", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"zMtMIpAyzQozbKNFThJtMbQWIxZ4drHac6BPUKuorrc="}
+  [4;35;1mReport Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+get_tags_with_attribute call
+Completed in 572ms (View: 74, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-12 21:51:20) [GET]
+  [4;36;1mReport Columns (74.1ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 282ms (View: 171, DB: 75) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-12 21:51:27) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"MLb4R46ikAMnEF9xjYL5Aq5q5AF2l6QDq6YGyHb7qHk="}
+  [4;35;1mReport Columns (7.9ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (52.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 5735ms (View: 105, DB: 62) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-12 21:51:45) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"domain", "tracking"=>"n", "domain"=>"http://kaltire.pagetorrent.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"MLb4R46ikAMnEF9xjYL5Aq5q5AF2l6QDq6YGyHb7qHk="}
+  [4;35;1mReport Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+get_tags_with_attribute call
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 5789ms (View: 43, DB: 5) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-29 17:43:02) [GET]
+  [4;36;1mReport Columns (61.9ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 283ms (View: 183, DB: 63) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-29 17:43:16) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://find.americanstandardair.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"BNCE899j4HeTwxLvKK3slrDAusMaIa/8tVefV8yCl5Y="}
+  [4;35;1mReport Columns (23.0ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (44.6ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.-) on line #68 of app/views/report/index.html.erb:
+65:                 <% unless @report.keywords.blank? -%>
+66:                   <%= keywords_report(page) %>
+67:                 <% end -%>
+68:                 <%= display_description_meta_tag_report(page) %>
+69:                 <%= display_h1_report(page) %>
+70:                 <%= display_h_report(page, 'h2') %>
+71:                 <% if @report.h3 == "y" -%>
+
+    app/helpers/report_helper.rb:8:in `get_tag_attribute'
+    app/helpers/report_helper.rb:205:in `display_description_meta_tag_report'
+    app/helpers/report_helper.rb:203:in `each'
+    app/helpers/report_helper.rb:203:in `display_description_meta_tag_report'
+    app/views/report/index.html.erb:68
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (113.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-29 17:46:33) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://find.americanstandardair.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"BNCE899j4HeTwxLvKK3slrDAusMaIa/8tVefV8yCl5Y="}
+  [4;35;1mReport Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.-) on line #68 of app/views/report/index.html.erb:
+65:                 <% unless @report.keywords.blank? -%>
+66:                   <%= keywords_report(page) %>
+67:                 <% end -%>
+68:                 <%= display_description_meta_tag_report(page) %>
+69:                 <%= display_h1_report(page) %>
+70:                 <%= display_h_report(page, 'h2') %>
+71:                 <% if @report.h3 == "y" -%>
+
+    app/helpers/report_helper.rb:8:in `get_tag_attribute'
+    app/helpers/report_helper.rb:205:in `display_description_meta_tag_report'
+    app/helpers/report_helper.rb:203:in `each'
+    app/helpers/report_helper.rb:203:in `display_description_meta_tag_report'
+    app/views/report/index.html.erb:68
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (44.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-08-29 17:50:35) [POST]
+  Parameters: {"report"=>{"contextual_links"=>"n", "h3"=>"n", "sitemap"=>"n", "url_type"=>"single_page", "tracking"=>"n", "domain"=>"http://find.americanstandardair.com", "images"=>"n", "keywords"=>""}, "commit"=>"Report", "authenticity_token"=>"BNCE899j4HeTwxLvKK3slrDAusMaIa/8tVefV8yCl5Y="}
+  [4;35;1mReport Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `reports`[0m
+  [4;36;1mPage Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/seo
+Rendering report/index
+metaTag: <meta content="YTEgTQgyHDP-pWDufa55zKV1kyO_h5LHMbBuJ1yHMIY" name="google-site-verification" />
+metaTag: <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+metaTag: <meta name="description" content="Air Conditioning, Heating and Air Filtration. For Sales &amp; Service call your independent American Standard  Dealer today.<br />
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.-) on line #68 of app/views/report/index.html.erb:
+65:                 <% unless @report.keywords.blank? -%>
+66:                   <%= keywords_report(page) %>
+67:                 <% end -%>
+68:                 <%= display_description_meta_tag_report(page) %>
+69:                 <%= display_h1_report(page) %>
+70:                 <%= display_h_report(page, 'h2') %>
+71:                 <% if @report.h3 == "y" -%>
+
+    app/helpers/report_helper.rb:8:in `get_tag_attribute'
+    app/helpers/report_helper.rb:206:in `display_description_meta_tag_report'
+    app/helpers/report_helper.rb:203:in `each'
+    app/helpers/report_helper.rb:203:in `display_description_meta_tag_report'
+    app/views/report/index.html.erb:68
+    app/views/report/index.html.erb:57
+
+Rendered rescues/_trace (44.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ReportController#index (for 127.0.0.1 at 2010-10-29 09:03:10) [GET]
+  [4;36;1mReport Columns (152.8ms)[0m   [0;1mSHOW FIELDS FROM `reports`[0m
+Rendering template within layouts/seo
+Rendering report/index
+Completed in 615ms (View: 287, DB: 154) | 200 OK [http://localhost/]
