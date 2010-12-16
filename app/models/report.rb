@@ -3,6 +3,7 @@ require 'URI'
 
 class Report < ActiveRecord::Base
   # the url_query method sets the URL's source code to the content attribute appropriately
+  # if it's correct, it will then query the pages as required
   validate :url_query
   has_many :pages
   
@@ -42,11 +43,24 @@ class Report < ActiveRecord::Base
   # @param [ActiveRecord Error] errors - passed to allow addition of validation errors
   # @return [void]
   def get_layers(index_page, errors)
-    tags = index_page.get_tags_with_attribute('class', 'layer-nav', { :after_body => true, :contains => true })
-    tags.each do |tag|
+  
+    href = get_navigation_tags(index_page)
+    unsuccessful = false
+    until unsuccessful
+      href = get_navigation_tags(self.pages[self.pages.size - 1])
+      unsuccessful = parse_page_and_get_next(href)
+    end
+  end
+  
+private
+  
+  def get_navigation_tags(page)
+    tag = page.get_tags_with_attribute('class', 'layer-nav', { :after_body => true, :contains => true })[0]
+    if !tag.nil?
       indexes = Array.new
       done = false
       last = 0
+      Rails.logger.debug "tag: #{tag}| page: #{page.url}"
       until done
         idx = tag.index(/href=("|')/, last)
         unless idx.nil?
@@ -56,44 +70,46 @@ class Report < ActiveRecord::Base
           done = true
         end
       end
-      indexes = indexes.sort_by { rand }
+      indexes = indexes.sort_by { rand }   
       href_index = indexes[0]
-      success = false        
+      url = nil
       unless href_index.nil?
-        href = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
-        unless href.blank?
-          if href[0,1] == '/'
-            begin
-             self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")), "#{self.domain_no_slash}#{href}")
-             success = true
-            rescue Exception => ex
-              errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-            end
-          elsif href.index(/http:\/\/|https:\/\//)
-            begin
-             self.add_page(Net::HTTP.get(href), href)
-             success = true
-            rescue Exception => ex
-              errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-            end
-          else
-            begin
-              self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")), "#{self.domain_with_slash}#{href}")
-              success = true
-            rescue Exception => ex
-              errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
-            end
-          end
-        end
-        if success
-          tags = self.pages[self.pages.size - 1].get_tags_with_attribute('class', 'layer-nav', { :after_body => true, :contains => true })
-          retry
-        end
+        url = tag[(href_index + 6)..tag.index(/"|'/, href_index+6)].gsub(/'|"/,'')
       end
+      return url
+    else
+      return nil
     end
   end
   
-private
+  def parse_page_and_get_next(href)
+    unsuccessful = true
+    if !href.nil? && !href.blank?
+      if href[0,1] == '/'
+        begin
+         self.add_page(Net::HTTP.get(URI.parse("#{self.domain_no_slash}#{href}")), "#{self.domain_no_slash}#{href}")
+         unsuccessful = false
+        rescue Exception => ex
+          self.errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+        end
+      elsif href.index(/http:\/\/|https:\/\//)
+        begin
+         self.add_page(Net::HTTP.get(href), href)
+         unsuccessful = false
+        rescue Exception => ex
+          self.errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+        end
+      else
+        begin
+          self.add_page(Net::HTTP.get(URI.parse("#{self.domain_with_slash}#{href}")), "#{self.domain_with_slash}#{href}")
+          unsuccessful = false
+        rescue Exception => ex
+          self.errors.add_to_base "Exception occured trying to retrieve the next layer: #{ex.message}"
+        end
+      end
+    end
+    unsuccessful
+  end
   
   def url_query
     begin
@@ -102,7 +118,7 @@ private
         self.get_layers(self.pages[0], errors)
       end      
     rescue Exception => ex
-      errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct.")
+      errors.add_to_base("An error occured parsing the given URL. Please check that the URL you provided is correct. #{ex.message}")
       self.content = ""
     end
   end  
