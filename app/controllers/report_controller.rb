@@ -1,5 +1,5 @@
 require 'net/http'
-require 'URI'
+# require 'URI'
 
 class ReportController < ApplicationController
   def index

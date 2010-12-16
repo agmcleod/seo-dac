@@ -1,5 +1,5 @@
 require 'net/http'
-require 'URI'
+# require 'URI'
 
 class Report < ActiveRecord::Base
   # the url_query method sets the URL's source code to the content attribute appropriately
